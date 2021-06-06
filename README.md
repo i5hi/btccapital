@@ -33,7 +33,7 @@ Eg periods:
 - medium = 1 year
 - short = 1 month
 
-At the topmost level we find two multi scripts between board members of the organization:
+At the topmost branch we find two scripts between board members of the organization:
 
 ## reserve
 
@@ -49,14 +49,15 @@ From `reserve` funds, the board members decide how much will be required for ope
 
 > A script between the board members.
 
+From operations fund, the board members must then decide how much of their funds will be required for operating within a defined short term period.
 
-From operations fund, the board members  must then decide how much of their funds will be required for operating in the next short term.
+They must first set a very short term cycle to get an idea of their spending propensity and accordingly adjust the time period and funds required.
 
-They must first set a very short term cycle to get an idea of their spending propensity and accordingly set the time period and funds required.
+<hr>
 
+This leads us to the final branch of the tree that holds the various different business specific payment logic.
 
-
-This leads us to the final branches of the tree that holds the various different business specific payment logic.
+These are all scripts primarily maintained by the team as a whole based on their own internally conducted consensus over a chosen private social media channel. 
 
 We have simplified it into three main types. 
 
@@ -66,7 +67,7 @@ All the following scripts must be backed up to allow the board to release after 
 
 ### live
 
-> A script primarily for the company node server as a single sig.
+> A script for the company node server as a single sig.
 
 Funded every short term period.
 
@@ -79,7 +80,7 @@ This could include:
 
 ### salary
 
-> A script primarily between the team members with a timelocked release.
+> A script between the team members with a timelocked release.
 
 Funded every short term period.
 
@@ -91,11 +92,9 @@ The team must get together arrive at consensus to enforce the salary scheme, res
 
 It is best not to require all members, rather delegate members of your team to enforce it on your behalf and use a chat platform to discuss the terms.
 
-<b>Each folder contains a more detailed explaination of their functions @ README.md.</b>
-
 ### resources
 
-> A script primarily between the team members without a timelocked release.
+> A script between the team members without a timelocked release.
 
 Funded every medium term period.
 
@@ -114,3 +113,4 @@ This is again a script that requires consensus from the team.
 If these funds are not used over a medium term, they are free to claim it as a bonus.
 
 
+<b>Each sub-folder contains a more detailed explaination of their functions @ README.md.</b>
