@@ -20,11 +20,11 @@ cd btccapital
 tree -d .
 
 btccapital:
-├── operations - medium
-│   ├── live - short
-│   ├── salary - short	   
-│   └── resources - medium
-└── reserve - long
+├── reserve - long
+└── operations - medium
+   ├── live - short
+   ├── salary - short	   
+   └── resources - medium
 ```
 
 Eg periods:
