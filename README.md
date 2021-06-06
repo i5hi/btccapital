@@ -8,7 +8,7 @@ An open-source model for building bitcoin native organizations.
 
 `btccapital` flows down into an organization where each level is defined by a type of bitcoin spending policy.
 
-This usually originates from a single signature or many single signatures each representing an signle investor. 
+This usually originates from a single signature or many single signatures each representing an single investor. 
 
 There could be cases where a group of investors start at this level out of a multi-signature, for example a capital fund.
 
@@ -33,11 +33,13 @@ Eg periods:
 - medium = 1 year
 - short = 1 month
 
+<hr>
+
 At the topmost branch we find two scripts between board members of the organization:
 
 ## reserve
 
-> A script between the board members.
+> A script requiring all board members.
 
 When an investor represented by `btccapital` funds a business, it does so by funding the long term `reserve` first.
 
@@ -47,7 +49,7 @@ From `reserve` funds, the board members decide how much will be required for ope
 
 ## operations
 
-> A script between the board members.
+> A script requiring only a few elected board members.
 
 From operations fund, the board members must then decide how much of their funds will be required for operating within a defined short term period.
 
@@ -67,7 +69,7 @@ All the following scripts must be backed up to allow the board to release after 
 
 ### live
 
-> A script for the company node server as a single sig.
+> A script for the company node server as a single sig with the admin as backup.
 
 Funded every short term period.
 
@@ -84,33 +86,41 @@ This could include:
 
 Funded every short term period.
 
-The idea here is that team members can only unlock funds in this wallet after a certain date.
+The idea here is that a script is funded up front BUT team members can only unlock funds in this wallet after a certain date.
 
 A new script is created for every renumeration cycle.
 
-The team must get together arrive at consensus to enforce the renumerations scheme, resulting in a moment of strengthening trust.
+The team must get together and arrive at consensus to enforce the renumeration scheme, resulting in a moment of strengthening trust.
 
-It is best not to require all members, rather delegate members of your team to enforce it on your behalf and use a chat platform to discuss the terms.
+The renumeration scheme is initially set with the team member and the board during onboarding. 
 
+A team member is not obliged to agree to changes to the renumeration scheme proposed by other members during a specific cycle. 
+
+However, if mutual consensus leads to a change for a given cycle, this is accepted by the board.
+
+This gives the team a chance to be fair with each other and quickly pick out the weeds.
+
+A team member can chose to sit out on consensus and just receive renumeration without the ceremonies.
+
+If such a member is a cause for concern, the team can addressed it with the board at the successive renumeration cycle.
+ 
 ### resources
 
-> A script between the team members without a timelocked release.
+> A script between delegated core team members without a timelocked release.
 
 Funded every medium term period.
 
 These are funds that the team would need to aquire shared resources or as an emergency fund.
 
-It belongs to the entire team and is created for every medium term as their reserve.
+It is managed by a delegated core team selected by the board, in consensus with the rest of the team.
 
-It is funded to exactly support early renumeration for all team members for n short periods.
+It is funded to exactly support a set `n` early renumerations for all team members for n short periods.
 
-This gives everyone a chance to take an early renumeration n times over a medium period.
+This gives everyone a chance to take an early renumeration `n` times over a medium period.
 
-Those two take an advance are not included in the next short period's renumeration script, and their renumerations is divided among other team members. 
+Those that take an advance are not included in the next renumeration cycle, and their renumeration is divided among other team members. 
 
-This is again a script that requires consensus from the team.
-
-If these funds are not used over a medium term, they are free to claim it as a bonus.
+The remainder of the funds at the end of the medium term cycle is distributed equally to all team members.
 
 
 <b>Each sub-folder contains a more detailed explaination of their functions @ README.md.</b>
