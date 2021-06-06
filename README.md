@@ -1,6 +1,6 @@
 # btccapital 
 
-An open-source model for building bitcoin native organizations.
+An model for structuring bitcoin native organizations.
 
 ## overview
 
