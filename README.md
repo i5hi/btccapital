@@ -23,7 +23,7 @@ btccapital:
 ├── reserve - long
 └── operations - medium
    ├── live - short
-   ├── renumeration - short	   
+   ├── payday - short	   
    └── resources - medium
 ```
 
@@ -51,17 +51,17 @@ From `reserve` funds, the board members decide how much will be required for ope
 
 > A script requiring only a few elected board members.
 
-From operations fund, the board members must then decide how much of their funds will be required for operating within a defined short term period.
+Managing operations fund over a medium term need not require all board members.
 
-They must first set a very short term cycle to get an idea of their spending propensity and accordingly adjust the time period and funds required.
+From the operations fund, the elected board members must decide how much will be required for operating within a defined short term period.
 
 <hr>
 
 This leads us to the final branch of the tree that holds the various different business specific payment logic.
 
-These are all scripts primarily maintained by the team as a whole based on their own internally conducted consensus over a chosen private social media channel. 
+These are all scripts primarily maintained by the team as a whole or by elected members, based on their own internally conducted consensus over a chosen private social media channel. 
 
-We have simplified it into three main types. 
+We have simplified it into three main cost streams. 
 
 This is where the framework extends. Add your own folders here. Replace the existing ones. This section is meant to be the most customizable.
 
@@ -73,36 +73,34 @@ All the following scripts must be backed up to allow the board to release after 
 
 Funded every short term period.
 
-This is the company hot wallet used to make bitcoin payments to third party service providers.
+This is the company's hot wallet used to make bitcoin payments to third party service providers.
 
 This could include:
 - domain registrars
 - cloud server providers
 - as part of your application logic (user rewards for example)
-
-### renumeration
+- 
+### payday
 
 > A script between the team members with a timelocked release.
 
 Funded every short term period.
 
-The idea here is that a script is funded up front BUT team members can only unlock funds in this wallet after a certain date.
+The idea here is that a script is funded up front BUT team members can only unlock funds in this wallet after a certain date aka payday.
 
-A new script is created for every renumeration cycle.
+A new script is created for every payday cycle.
 
-The team must get together and arrive at consensus to enforce the renumeration scheme, resulting in a moment of strengthening trust.
+The team must get together and arrive at consensus to enforce the payday scheme, resulting in a moment of strengthening trust.
 
-The renumeration scheme is initially set with the team member and the board during onboarding. 
+The payday scheme is initially set with the team member and the board during onboarding. 
 
-A team member is not obliged to agree to changes to the renumeration scheme proposed by other members during a specific cycle. 
+A team member is not obliged to agree to changes to the payday scheme proposed by other members during a specific cycle. 
 
 However, if mutual consensus leads to a change for a given cycle, this is accepted by the board.
 
 This gives the team a chance to be fair with each other and quickly pick out the weeds.
 
-A team member can chose to sit out on consensus and just receive renumeration without the ceremonies.
-
-If such a member is a cause for concern, the team can addressed it with the board at the successive renumeration cycle.
+A team member can chose to sit out on consensus and just get paid on payday without the ceremonies.
  
 ### resources
 
@@ -114,11 +112,11 @@ These are funds that the team would need to aquire shared resources or as an eme
 
 It is managed by a delegated core team selected by the board, in consensus with the rest of the team.
 
-It is funded to exactly support a set `n` early renumerations for all team members for n short periods.
+It is funded to exactly support a chosen `n` early renumerations for all team members for `n` short periods.
 
-This gives everyone a chance to take an early renumeration `n` times over a medium period.
+This gives everyone a chance to take an early payday `n` times over a medium period.
 
-Those that take an advance are not included in the next renumeration cycle, and their renumeration is divided among other team members. 
+Those that take an advance are not included in the next payday cycle, and their payday amount is divided among other team members. 
 
 The remainder of the funds at the end of the medium term cycle is distributed equally to all team members.
 
