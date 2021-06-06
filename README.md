@@ -23,7 +23,7 @@ btccapital:
 ├── reserve - long
 └── operations - medium
    ├── live - short
-   ├── salary - short	   
+   ├── renumeration - short	   
    └── resources - medium
 ```
 
@@ -78,7 +78,7 @@ This could include:
 - cloud server providers
 - as part of your application logic (user rewards for example)
 
-### salary
+### renumeration
 
 > A script between the team members with a timelocked release.
 
@@ -86,9 +86,9 @@ Funded every short term period.
 
 The idea here is that team members can only unlock funds in this wallet after a certain date.
 
-A new script is created for every salary cycle.
+A new script is created for every renumeration cycle.
 
-The team must get together arrive at consensus to enforce the salary scheme, resulting in a moment of strengthening trust.
+The team must get together arrive at consensus to enforce the renumerations scheme, resulting in a moment of strengthening trust.
 
 It is best not to require all members, rather delegate members of your team to enforce it on your behalf and use a chat platform to discuss the terms.
 
@@ -102,11 +102,11 @@ These are funds that the team would need to aquire shared resources or as an eme
 
 It belongs to the entire team and is created for every medium term as their reserve.
 
-It is funded to exactly support early salary for all team members for n short periods.
+It is funded to exactly support early renumeration for all team members for n short periods.
 
-This gives everyone a chance to take an early salary n times over a medium period.
+This gives everyone a chance to take an early renumeration n times over a medium period.
 
-Those two take an advance are not included in the next short period's salary script, and their salary is divided among other team members. 
+Those two take an advance are not included in the next short period's renumeration script, and their renumerations is divided among other team members. 
 
 This is again a script that requires consensus from the team.
 
