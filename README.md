@@ -49,7 +49,7 @@ From `reserve` funds, the board members decide how much will be required for ope
 
 ## operations
 
-> A script requiring only a few elected board members.
+> A script requiring only a few board members.
 
 Managing operations fund over a medium term need not require all board members.
 
@@ -69,7 +69,7 @@ All the following scripts must be backed up to allow the board to release after 
 
 ### live
 
-> A script for the company node server as a single sig with the admin as backup.
+> A single-sig script for the company's node server
 
 Funded every short term period.
 
