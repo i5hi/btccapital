@@ -1,12 +1,12 @@
 # btccapital 
 
-An model for structuring bitcoin native organizations.
+An model for structuring bitcoin native organizations as a set of [miniscript policies](http://bitcoin.sipa.be/miniscript/).
 
 ## overview
 
 `btcapital` is the topmost level of an organization, representing the individual/group bringing capital into the organization.
 
-`btccapital` flows down into an organization where each level is defined by a type of [bitcoin spending policy](http://bitcoin.sipa.be/miniscript/).
+`btccapital` flows down into an organization where each level is defined by a type of bitcoin spending policy.
 
 This usually originates from a single signature or many single signatures each representing an single investor. 
 
