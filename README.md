@@ -6,7 +6,7 @@ An model for structuring bitcoin native organizations.
 
 `btcapital` is the topmost level of an organization, representing the individual/group bringing capital into the organization.
 
-`btccapital` flows down into an organization where each level is defined by a type of bitcoin spending policy.
+`btccapital` flows down into an organization where each level is defined by a type of [bitcoin spending policy](http://bitcoin.sipa.be/miniscript/).
 
 This usually originates from a single signature or many single signatures each representing an single investor. 
 
@@ -104,7 +104,7 @@ A team member can chose to sit out on consensus and just get paid on payday with
  
 ### resources
 
-> A script between delegated core team members without a timelocked release.
+> A script between delegated core team members.
 
 Funded every medium term period.
 
