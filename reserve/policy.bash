@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 HDPATH="m/84h/1h/0h"
 
@@ -15,9 +15,7 @@ CEOCHILDPUB=$(bdk-cli key derive --path $HDPATH --xprv $CEOMASTERPRV | jq -r ".x
 CFOCHILDPRV=$(bdk-cli key derive --path $HDPATH --xprv $CFOMASTERPRV | jq -r ".xprv" | rev | cut -c3- | rev)
 CFOCHILDPUB=$(bdk-cli key derive --path $HDPATH --xprv $CFOMASTERPRV | jq -r ".xpub" | rev | cut -c3- | rev)
 
-
-POLICY="thresh(3,pk($CTOCHILDPUB),pk($CEOCHILDPUB),pk($CFOCHILDPUB))" 
-echo $POLICY
+POLICY="thresh(3,pk($CTOCHILDPUB),pk($CEOCHILDPUB),pk($CFOCHILDPUB))"
 
 DESC=$(bdk-cli compile "$POLICY" -t sh)
 
