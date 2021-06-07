@@ -18,9 +18,9 @@ Benefits:
 Disadvantages:
 - single point of failure
 
-## multi (preferred)
+## thresh (preferred)
 ```
-multi(2,NODE,SIGSERVER)
+thresh(2,NODE,SIGSERVER)
 ```
 
 The second server need not run a node, it just needs to sign PSBT's.
@@ -39,5 +39,5 @@ Disadvantages:
 All operations policies are backed up with a timelock by the CFO.
 
 ```
-or(multi(2,NODE,SIGSERVER),and(pk(CFO),older(blockheight)))
+or(thresh(2,NODE,SIGSERVER),and(pk(CFO),older(blockheight)))
 ```
