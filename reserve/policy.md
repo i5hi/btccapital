@@ -22,11 +22,11 @@ Benefits:
 Disadvantages
 - a single lost key can compromise funds
 
-## and_or (preferred)
+## thresh_or (preferred)
 Note: Keys must be wrapped in `pk()` - avoided here for reading clarity.
 
 ```
-and(or(CEO,CEO1),or(CFO,CFO1),or(CTO,CTO1))
+thresh(3,or(CEO,CEO1),or(CFO,CFO1),or(CTO,CTO1))
 ```
 
 Benefits:
@@ -38,14 +38,14 @@ Disadvantages
 
 
 
-### backup
+### or_and backup
 
-Wrap up either policy in an `or` + add an `and` condition with an `after/older` timelock.
+Wrap up your preferred either policy in an `or` + add an `and` condition with an `after/older` timelock.
 
 For example:
 
 ```
-or(and(or(CEO,CEO1),or(CFO,CFO1),or(CTO,CTO1)),and(pk(CFO1),older(blockheight)))
+or(thresh(3,or(CEO,CEO1),or(CFO,CFO1),or(CTO,CTO1)),and(pk(CFO1),older(blockheight)))
 ```
 
 This will retain the original policy, but also allow the CFO to release the funds with a single sig after a certain blockheight.
