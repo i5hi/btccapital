@@ -20,7 +20,7 @@ Benefits:
 Disadvantages
 - a single lost key can compromise funds
 
-## and_or
+## and_or (preferred)
 ```
 and(or(CEO,CEO1),or(CFO,CFO1),or(CTO,CTO1))
 ```
