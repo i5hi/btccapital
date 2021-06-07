@@ -73,13 +73,13 @@ All the following scripts must be backed up to allow the board to release after 
 
 Funded every short term period.
 
-This is the company's hot wallet used to make bitcoin payments to third party service providers.
+This is the company's hot wallet used to make automated bitcoin payments.
 
 This could include:
-- domain registrars
-- cloud server providers
-- as part of your application logic (user rewards for example)
-- 
+- domain registrar payment
+- cloud server provider payments
+- anything; as part of your application logic
+
 ### payday
 
 > A script between the team members with a timelocked release.
