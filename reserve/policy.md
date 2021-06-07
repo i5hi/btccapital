@@ -8,9 +8,11 @@ They begin by creating a reserve policy for receiving funds from `btccapital`.
 
 Two scripting options are viable here:
 
-## multi
+## thresh
+Note: Keys must be wrapped in `pk()` - avoided here for reading clarity.
+
 ```
-multi(3,CEO,CFO,CTO)
+thresh(3,CEO,CFO,CTO)
 ```
 
 Benefits:
@@ -21,6 +23,8 @@ Disadvantages
 - a single lost key can compromise funds
 
 ## and_or (preferred)
+Note: Keys must be wrapped in `pk()` - avoided here for reading clarity.
+
 ```
 and(or(CEO,CEO1),or(CFO,CFO1),or(CTO,CTO1))
 ```
