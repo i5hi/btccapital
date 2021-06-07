@@ -11,19 +11,33 @@ pk(NODE)
 ```
 For increased security, use two distributed servers in a multisig setup.
 
-## multi
+Benefits:
+- simple
+- fast
+
+Disadvantages:
+- single point of failure
+
+## multi (preferred)
 ```
-multi(2,NODE,NODE1)
+multi(2,NODE,SIGSERVER)
 ```
+
+The second server need not run a node, it just needs to sign PSBT's.
 
 This ensures that if one server is compromised, funds are not at risk.
 
+Benefits:
+- no single point of failure
+
+Disadvantages:
+- additional server cost
+- marginally slower
 
 ### backup
 
 All operations policies are backed up with a timelock by the CFO.
 
 ```
-or(pk(NODE),and(pk(CFO,older(blockheight)))
 or(multi(2,NODE,NODE1),and(pk(CFO),older(blockheight)))
 ```
