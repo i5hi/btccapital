@@ -41,7 +41,8 @@ Wrap up either policy in an `or` + add an `and` condition with an `after/older` 
 For example:
 
 ```
-or(multi(3,CEO,CFO,CTO),and(pk(CFO1),older(blockheight))
+or(multi(3,CEO,CFO,CTO),and(pk(CFO1),older(blockheight)))
+or(and(or(CEO,CEO1),or(CFO,CFO1),or(CTO,CTO1)),and(pk(CFO1),older(blockheight)))
 ```
 
 This will retain the original policy, but also allow the CFO to release the funds with a single sig after a certain blockheight.
