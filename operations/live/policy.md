@@ -39,5 +39,5 @@ Disadvantages:
 All operations policies are backed up with a timelock by the CFO.
 
 ```
-or(multi(2,NODE,NODE1),and(pk(CFO),older(blockheight)))
+or(multi(2,NODE,SIGSERVER),and(pk(CFO),older(blockheight)))
 ```
