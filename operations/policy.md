@@ -2,11 +2,9 @@
 
 The operational policy need not require all board members. 
 
+It understands the tradeoff of security for speed and accordingly operates on a given amount for a given medium term.
+
 It must require the CFO & CTO at the bare minimum. 
-
-Unlike the `reserve` policy which is `m/m` multi, `operations` uses a `n/m` multi, making it a bit safer and less vulnerable to lost keys.
-
-`m - n` parties can afford to lose their keys without compromising funds.
 
 The CTO can optionally chose to maintain their key as a hot wallet, to make the signing process faster.
 
@@ -30,8 +28,8 @@ and(or(CFO,CFO1),or(CTO,CTO1))
 ```
 
 Benefits:
-- 2 parties can afford to lose keys
-
+- 1 backup key per individual
+ 
 Disadvantage:
 - 1 member is being completely exluded
 - Addition of another member raises complexity 
