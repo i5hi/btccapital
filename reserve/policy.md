@@ -30,7 +30,7 @@ and(or(CEO,CEO1),or(CFO,CFO1),or(CTO,CTO1))
 ```
 
 Benefits:
-- 1 key backup
+- 1 key backup per individual
 
 Disadvantages
 - not well supported yet (try [bdk](https://bitcoindevkit.org))
