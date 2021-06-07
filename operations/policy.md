@@ -10,9 +10,11 @@ Unlike the `reserve` policy which is `m/m` multi, `operations` uses a `n/m` mult
 
 The CTO can optionally chose to maintain their key as a hot wallet, to make the signing process faster.
 
-## multi (preferred)
+## thresh (preferred)
+Note: Keys must be wrapped in `pk()` - avoided here for reading clarity.
+
 ```
-multi(2,CEO,CFO,CTO)
+thresh(2,CEO,CFO,CTO)
 ```
 
 Benefits:
@@ -21,6 +23,8 @@ Benefits:
 - 1 party can afford to lose key
 
 ## and_or
+Note: Keys must be wrapped in `pk()` - avoided here for reading clarity.
+
 ```
 and(or(CFO,CFO1),or(CTO,CTO1))
 ```
@@ -39,7 +43,7 @@ Wrap up either policy in an `or` + add an `and` condition with an `after/older` 
 For example:
 
 ```
-or(multi(2,CEO,CFO,CTO),and(pk(CFO1),older(blockheight)))
+or(thresh(2,CEO,CFO,CTO),and(pk(CFO1),older(blockheight)))
 ```
 
 This will retain the original policy, but also allow the CFO to release the funds with a single sig after a certain blockheight.
