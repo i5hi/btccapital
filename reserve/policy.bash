@@ -36,5 +36,6 @@ AOPOLICY="thresh(3,or(pk($CTOCHILDPUB),pk($CTOCHILDPUB1)),or(pk($CEOCHILDPUB),pk
 
 DESC=$(bdk-cli compile "$AOPOLICY" -t wsh)
 
-echo "\nAND_OR POLICY DESCRIPTOR:\n"
+echo "\nTHRESH_OR POLICY DESCRIPTOR:\n"
 echo $DESC
+

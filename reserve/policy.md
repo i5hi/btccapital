@@ -37,17 +37,3 @@ Disadvantages
 - larger size (will not be an issue with schnorr/taproot)
 
 
-
-### or_and backup
-
-Wrap up your preferred either policy in an `or` + add an `and` condition with an `after/older` timelock.
-
-For example:
-
-```
-or(thresh(3,or(CEO,CEO1),or(CFO,CFO1),or(CTO,CTO1)),and(pk(CFO1),older(blockheight)))
-```
-
-This will retain the original policy, but also allow the CFO to release the funds with a single sig after a certain blockheight.
-
-Again, this is currently not supported by core, but you can roll out such policies with [bdk](https://bitcoindevkit.org).
