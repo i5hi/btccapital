@@ -10,7 +10,7 @@ Unlike the `reserve` policy which is `m/m` multi, `operations` uses a `n/m` mult
 
 The CTO can optionally chose to maintain their key as a hot wallet, to make the signing process faster.
 
-## multi (preffered)
+## multi (preferred)
 ```
 multi(2,CEO,CFO,CTO)
 ```
@@ -26,9 +26,9 @@ and(or(CFO,CFO1),or(CTO,CTO1))
 ```
 
 Benefits:
-- 2 parties can addord to lose keys
+- 2 parties can afford to lose keys
 
 Disadvantage:
-- 1 member is being completed exluded
+- 1 member is being completely exluded
 - Addition of another member raises complexity 
 
