@@ -14,7 +14,17 @@ There could be cases where a group of investors start at this level out of a mul
 
 
 ```bash
+# Get rust toolchain
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# Get bdk-cli to test policy implementations
+cargo install --git https://github.com/bitcoindevkit/bdk-cli --features=compiler,compact_filters
+# Get jq to parse JSON on the cli
+# linux
+sudo apt-get install jq
+# mac
+sudo brew install jq
 
+# get repo
 git clone https://github.com/vmenond/btccapital
 cd btccapital
 tree -d .
