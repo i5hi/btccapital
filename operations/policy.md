@@ -20,11 +20,11 @@ Benefits:
 - light-weight
 - 1 party can afford to lose key
 
-## and_or
+## thresh
 Note: Keys must be wrapped in `pk()` - avoided here for reading clarity.
 
 ```
-and(or(CFO,CFO1),or(CTO,CTO1))
+thresh(2,or(CFO,CFO1),or(CTO,CTO1))
 ```
 
 Benefits:
