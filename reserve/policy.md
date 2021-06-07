@@ -2,7 +2,7 @@
 
 For a reserve policy we encourage requiring ALL board members. This ensures that an organization sets out with the intent to maintain consensus at the board level. This also reflects the strength of an organization's board.
 
-Let us consider an example of 3 board members creating an organization. 
+Let us consider an example of 3 board members (CEO,CFO & CTO) creating an organization. 
 
 They begin by creating a reserve policy for receiving funds from `btccapital`.
 
