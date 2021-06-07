@@ -22,7 +22,7 @@ tree -d .
 btccapital:
 ├── reserve - long
 └── operations - medium
-   ├── live - short
+   ├── live - short-medium
    ├── payday - short	   
    └── resources - medium
 ```
@@ -71,7 +71,7 @@ All the following scripts must be backed up to allow the board to release after 
 
 > A single-sig script for the company's node server
 
-Funded every short term period.
+Funded every short-medium term period.
 
 This is the company's hot wallet used to make automated bitcoin payments.
 
