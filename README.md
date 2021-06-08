@@ -1,6 +1,6 @@
 # btccapital 
 
-An model for structuring bitcoin native organizations as a set of [miniscript policies](http://bitcoin.sipa.be/miniscript/).
+An model for structuring an organization's bitcoin accounts as a set of [miniscript policies](http://bitcoin.sipa.be/miniscript/).
 
 ## overview
 
@@ -52,6 +52,8 @@ When an investor represented by `btccapital` funds a business, it does so by fun
 This is also where company revenue is collected.
 
 From `reserve` funds, the board members decide how much will be required for operating over a medium term and according fund `operations`.
+
+> Non Bitcoin Native organizations would only maintain a reserve without an operations account.
 
 ## operations
 
