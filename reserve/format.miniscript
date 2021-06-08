@@ -1,35 +1,31 @@
-"wsh(
+# Format
+
+A pretty printer for miniscript with the following format could be a really useful tool.
+
+## Generic
+```
+wsh(
     and_v(
         or_c(
-            pk(
-                [35097e67/84'/1'/0']tprv8fpGbwsLrqBQ4kB2Dxjew652Nv8CDEspDcfL4wPrZSjM2Nnggs5rAbkn35B4Nr9QpFAWSPnFXabhqVVGYfEXTHRXryqRZVKiuRUJX8Rj8o2
-            ),
-            v:pk(
-                [35097e67/84'/1'/1']tpubDCWJkMub1Cs513wi3wz5i7URFnbn2oUgnZzoihsWU2o5bPBeqQP1mLbmuiV8m8yA6VKdbozaK3z6FjknnGxx6DiZSQ6xLhggDn6yGxV3ydC
-            )
+            pk(A),
+            v:pk(A')
         ),
         and_v(
             or_c(
-                pk(
-                    [5d876550/84'/1'/0']tpubDCWiGAwJ8dgfmFr6SodPDZCwUqBGa4jAfQZ1U8Qa8oFcGS2dm1qhtTroZFa2MbRn827eUxJ5nnf5abJaXGJkQooK6qXyBjgibVM49Qvu6bP
-                ),
-                v:pk(
-                    [5d876550/84'/1'/1']tpubDCWiGAwJ8dgfo4GbZdgNLrRVXpHS7mvF62jo3A14R8QLNnV9wLV6rJec94VtRExwNiYNoHZqDP5FZszQjqGa3FAaBwjDg5BrfaWBfax9ZnD
-                )
+                pk(B),
+                v:pk(B')
             ),
             or_b(
-                pk(
-                    [50e717f8/84'/1'/0']tpubDCgMkiM8dDKDLXKqMm5ge8p9DbJoRtH5V6FpLgX38D9qKkHx8M2XWSZkHwVXG4Mrqhvmb63ahxWzwmvseDzARVh4nh96ZiEAYqkv7cr4oaT
-                ),
-                s:pk(
-                    [50e717f8/84'/1'/1']tpubDCgMkiM8dDKDPUFsw5Uob9GtzG2LCnew9nKpGYJ3sSRGjgb8DVLCSCyYTdPwBD3t3ijet7Nw7nAk8BJEPvpyCv1grcw3nXmaE8yGa2nvRiU
-                )
+                pk(C),
+                s:pk(C')
             )
         )
     )
-)#u38sg3m6"
+)
+```
 
-
+## XKeys
+```
 wsh(
     and_v(
         or_c(
@@ -60,4 +56,4 @@ wsh(
         )
     )
 )#j5krfnll
-
+```
