@@ -1,8 +1,8 @@
-# Format
+# Printing Miniscript
 
-A pretty printer for miniscript with the following format could be a really useful tool.
+A pretty printer for miniscript could be a really useful tool.
 
-## Generic
+## Generic Example
 ```
 wsh(
     and_v(
@@ -57,3 +57,4 @@ wsh(
     )
 )#j5krfnll
 ```
+
