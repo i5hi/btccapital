@@ -1,0 +1,63 @@
+"wsh(
+    and_v(
+        or_c(
+            pk(
+                [35097e67/84'/1'/0']tprv8fpGbwsLrqBQ4kB2Dxjew652Nv8CDEspDcfL4wPrZSjM2Nnggs5rAbkn35B4Nr9QpFAWSPnFXabhqVVGYfEXTHRXryqRZVKiuRUJX8Rj8o2
+            ),
+            v:pk(
+                [35097e67/84'/1'/1']tpubDCWJkMub1Cs513wi3wz5i7URFnbn2oUgnZzoihsWU2o5bPBeqQP1mLbmuiV8m8yA6VKdbozaK3z6FjknnGxx6DiZSQ6xLhggDn6yGxV3ydC
+            )
+        ),
+        and_v(
+            or_c(
+                pk(
+                    [5d876550/84'/1'/0']tpubDCWiGAwJ8dgfmFr6SodPDZCwUqBGa4jAfQZ1U8Qa8oFcGS2dm1qhtTroZFa2MbRn827eUxJ5nnf5abJaXGJkQooK6qXyBjgibVM49Qvu6bP
+                ),
+                v:pk(
+                    [5d876550/84'/1'/1']tpubDCWiGAwJ8dgfo4GbZdgNLrRVXpHS7mvF62jo3A14R8QLNnV9wLV6rJec94VtRExwNiYNoHZqDP5FZszQjqGa3FAaBwjDg5BrfaWBfax9ZnD
+                )
+            ),
+            or_b(
+                pk(
+                    [50e717f8/84'/1'/0']tpubDCgMkiM8dDKDLXKqMm5ge8p9DbJoRtH5V6FpLgX38D9qKkHx8M2XWSZkHwVXG4Mrqhvmb63ahxWzwmvseDzARVh4nh96ZiEAYqkv7cr4oaT
+                ),
+                s:pk(
+                    [50e717f8/84'/1'/1']tpubDCgMkiM8dDKDPUFsw5Uob9GtzG2LCnew9nKpGYJ3sSRGjgb8DVLCSCyYTdPwBD3t3ijet7Nw7nAk8BJEPvpyCv1grcw3nXmaE8yGa2nvRiU
+                )
+            )
+        )
+    )
+)#u38sg3m6"
+
+
+wsh(
+    and_v(
+        or_c(
+            pk(
+                [af3b3fbb/84'/1'/0']tpubDCJ4zRGM6S575M7VZXRj34tDNXEE2GETwgB9WKXj7fY8oEJyPLUNRUgDBAwrf8mq6UyCPJVgHCquPRHyESXJfMS2u47fzTWsG3EPL2Nywy8
+            ),
+            v:pk(
+                [af3b3fbb/84'/1'/1']tpubDCJ4zRGM6S579JVLjeLqTJX9k8WFQ1JyV7KGWe36ynqHGdsKYYfSLWhZqycayyLURvZPBz3dgsAQVBYZbsYBCcd82rqPTWLd4yCPkeco7Bq
+            )
+        ),
+        and_v(
+            or_c(
+                pk(
+                    [8e223f3e/84'/1'/0']tpubDCFHmQchsUZGEMm8wFNGGZYev4xMo7R55jwo1JdHkHdU98m3wQVXxdgUAiiNkFbCyNG9goZsNohovfSPN7Wy5Gmb3c2sJb9dtsht5G4vfQw
+                ),
+                v:pk(
+                    [8e223f3e/84'/1'/1']tpubDCFHmQchsUZGHuPMn9QBkzrEomUqyfMpNA49fdAN194Uza3KMSSkkSREagUzH9q52ubDgJZQa4figM8miSJxpj2ifcuer6DQu6rvhAc9VNX
+                )
+            ),
+            or_b(
+                pk(
+                    [f65f1544/84'/1'/0']tpubDDKAoYjKZrRFqg78AyxH3e4DJv4SDDvsqYytfcgH2ZSLSkesmtJExhDfVeqDbm3GPsxe9tBTordi6JAxEtdx7ryi4U1d5wWUqoD7tr9hhFK
+                ),
+                s:pk(
+                    [f65f1544/84'/1'/1']tpubDDKAoYjKZrRFtoijmP9FHRNWexs13qcpeitLJx9Dgt7L7vF9Mb2j5RmeNCX3oJQHAFBAdh59ZuxVrPeTBeEffKDjPgfSGwHHigqmR7SEofC
+                )
+            )
+        )
+    )
+)#j5krfnll
+
