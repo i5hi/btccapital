@@ -1,6 +1,6 @@
 # btccapital 
 
-An model for structuring an organization's bitcoin accounts as a set of [miniscript policies](http://bitcoin.sipa.be/miniscript/).
+A model to structure an organization's bitcoin accounts as a set of [miniscript policies](http://bitcoin.sipa.be/miniscript/).
 
 ## overview
 
