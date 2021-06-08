@@ -20,7 +20,7 @@ bdk-cli wallet -w $PUBWALL -d $PUBDESC get_new_address
 bdk-cli wallet -w $PUBWALL -d $PUBDESC get_balance
 
 PSBT0=$(bdk-cli wallet -w $PUBWALL -d $PUBDESC create_tx -a --to $RETURNADD:0 | jq -r ".psbt")
-printf "$PSBT0"
+# printf "$PSBT0"
 
 # Sign or(C,C')
 
@@ -45,7 +45,7 @@ PSBTBA=$(bdk-cli wallet -w $PUBWALL -d $PUBDESC combine_psbt --psbt $PSBTB --psb
 
 PSBTCBA=$(bdk-cli wallet -w $PUBWALL -d $PUBDESC combine_psbt --psbt $PSBTC --psbt $PSBTBA | jq -r ".psbt")
 
-printf "$PSBTCBA"
+# printf "$PSBTCBA"
 
 # Finalize 
 
