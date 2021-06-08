@@ -6,11 +6,7 @@ An model for structuring bitcoin native organizations as a set of [miniscript po
 
 `btcapital` is the topmost level of an organization, representing the individual/group bringing capital into the organization.
 
-`btccapital` flows down into an organization where each level is defined by a type of bitcoin spending policy.
-
-This usually originates from a single signature or many single signatures each representing an single investor. 
-
-There could be cases where a group of investors start at this level out of a multi-signature, for example a capital fund.
+This represents external funds entering the organization and we are therefore not in control of its spending policy. It could either come from an individual single-sig or an group of investors as a multi-sig or some other policy.
 
 
 ```bash
@@ -45,7 +41,7 @@ Eg periods:
 
 <hr>
 
-At the topmost branch we find two scripts between board members of the organization:
+At the topmost branch we find two policies between board members of the organization:
 
 ## reserve
 
