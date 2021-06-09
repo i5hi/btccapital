@@ -1,12 +1,16 @@
 #!/bin/bash -e
 
+# multi
+MPUBWALL=mpub91
+# raft
+RPUBWALL=rpub91
+# The above must be consistant across all shell scripts.
 
-# CREATE SEED AND MASTER ACCOUNT
+# SIMULATE HARDWARE WALLET SEEDS AND ACCOUNTS FOR 3 SIGNATORIES
 CEOMASTERPRV=$(bdk-cli key generate | jq -r ".xprv")
 CFOMASTERPRV=$(bdk-cli key generate | jq -r ".xprv")
 CTOMASTERPRV=$(bdk-cli key generate | jq -r ".xprv")
 
-# DERIVE CHILD KEYS
 HDPATH="m/84h/1h/1h"
 
 CEOCHILDPRV=$(bdk-cli key derive --path $HDPATH --xprv $CEOMASTERPRV | jq -r ".xprv" | rev | cut -c3- | rev)
@@ -18,55 +22,57 @@ CFOCHILDPUB=$(bdk-cli key derive --path $HDPATH --xprv $CFOMASTERPRV | jq -r ".x
 CTOCHILDPRV=$(bdk-cli key derive --path $HDPATH --xprv $CTOMASTERPRV | jq -r ".xprv" | rev | cut -c3- | rev)
 CTOCHILDPUB=$(bdk-cli key derive --path $HDPATH --xprv $CTOMASTERPRV | jq -r ".xpub" | rev | cut -c3- | rev)
 
-# CREATE REGULAR 3/3 MULTI
-
+# CREATE REGULAR 3/3 MULTI POLICIES 
 PUBPOLICY="thresh(3,pk($CEOCHILDPUB),pk($CFOCHILDPUB),pk($CTOCHILDPUB))"
+
 CEOPOLICY="thresh(3,pk($CEOCHILDPRV),pk($CFOCHILDPUB),pk($CTOCHILDPUB))"
 CFOPOLICY="thresh(3,pk($CEOCHILDPUB),pk($CFOCHILDPRV),pk($CTOCHILDPUB))"
 CTOPOLICY="thresh(3,pk($CEOCHILDPUB),pk($CFOCHILDPUB),pk($CTOCHILDPRV))"
 
-# CREATE DESCRIPTORS
-
-PUBDESC=$(bdk-cli compile "$PUBPOLICY" -t wsh)
+PUBDESC=$(bdk-cli compile "$PUBPOLICY" -t wsh  | jq -r ".descriptor")
 CEODESC=$(bdk-cli compile "$CEOPOLICY" -t wsh)
 CFODESC=$(bdk-cli compile "$CFOPOLICY" -t wsh)
 CTODESC=$(bdk-cli compile "$CTOPOLICY" -t wsh)
 
-# PRINT DESCRIPTORS TO DFILE
+# GET AN ADDRESS TO FUND
+bdk-cli wallet -w $MPUBWALL -d $PUBDESC sync
+FUNDADDR=$( bdk-cli wallet -w $MPUBWALL -d $PUBDESC get_new_address | jq -r ".address" )
+
+# PRINT MULTI DESCRIPTORS AND ADDRESS TO DFILE
 DFILE="descriptors.md"
 touch $DFILE
-printf "# 3/3 MULTI\n\n" > $DFILE
+printf "# MULTI\n\n" > $DFILE
 
 printf "## PUBLIC DESCRIPTOR\n" >> $DFILE
 printf "\n\`\`\`\n" >> $DFILE
-printf "$PUBDESC" | jq -r ".descriptor" >> $DFILE
+printf "$PUBDESC" >> $DFILE
 printf "\n\`\`\`\n" >> $DFILE
 
-printf "## CEO PRIVATE DESCRIPTOR\n" >> $DFILE
+printf "## A PRIVATE DESCRIPTOR\n" >> $DFILE
 printf "\n\`\`\`\n" >> $DFILE
 printf "$CEODESC" | jq -r ".descriptor" >> $DFILE
 printf "\n\`\`\`\n" >> $DFILE
 
-printf "## CFO PRIVATE DESCRIPTOR\n" >> $DFILE
+printf "## B PRIVATE DESCRIPTOR\n" >> $DFILE
 printf "\n\`\`\`\n" >> $DFILE
 printf "$CFODESC" | jq -r ".descriptor" >> $DFILE
 printf "\n\`\`\`\n" >> $DFILE
 
-printf "## CTO PRIVATE DESCRIPTOR\n" >> $DFILE
+printf "## C PRIVATE DESCRIPTOR\n" >> $DFILE
 printf "\n\`\`\`\n" >> $DFILE
 printf "$CTODESC" | jq -r ".descriptor" >> $DFILE
 printf "\n\`\`\`\n" >> $DFILE
 
-
+printf "\n\n# MULTI FUND ADDRESS \n\n" >> $DFILE
+printf "$FUNDADDR" >> $DFILE
 
 # CREATE RAFT
-# CREATE SEED AND RAFT ACCOUNT
 
+# SIMULATE HARDWARE WALLET SEEDS AND ACCOUNTS FOR 3 SIGNATORIES
 CEOMASTERPRV=$(bdk-cli key generate | jq -r ".xprv")
 CFOMASTERPRV=$(bdk-cli key generate | jq -r ".xprv")
 CTOMASTERPRV=$(bdk-cli key generate | jq -r ".xprv")
 
-# DERIVE BACKUP KEYS 
 HDPATH="m/84h/1h/3h"
 
 CEOCHILDPRV1=$(bdk-cli key derive --path $HDPATH --xprv $CEOMASTERPRV | jq -r ".xprv" | rev | cut -c3- | rev)
@@ -78,67 +84,41 @@ CFOCHILDPUB1=$(bdk-cli key derive --path $HDPATH --xprv $CFOMASTERPRV | jq -r ".
 CTOCHILDPRV1=$(bdk-cli key derive --path $HDPATH --xprv $CTOMASTERPRV | jq -r ".xprv" | rev | cut -c3- | rev)
 CTOCHILDPUB1=$(bdk-cli key derive --path $HDPATH --xprv $CTOMASTERPRV | jq -r ".xpub" | rev | cut -c3- | rev)
 
+
+# CREATE PUBLIC POLICY / DESCRIPTOR MAINTAINED BY THE SERVER
+PUBPOLICY="thresh(3,or(pk($CEOCHILDPUB),pk($CEOCHILDPUB1)),or(pk($CFOCHILDPUB),pk($CFOCHILDPUB1)),or(pk($CTOCHILDPUB),pk($CTOCHILDPUB1)))"
+PUBDESC=$(bdk-cli compile "$PUBPOLICY" -t wsh | jq -r ".descriptor")
+# GET A RAFT ADDRESS TO FUND
+bdk-cli wallet -w $RPUBWALL -d $PUBDESC sync
+FUNDADDR=$( bdk-cli wallet -w $RPUBWALL -d $PUBDESC get_new_address | jq -r ".address" )
+
+# PRINT RAFT DESCRIPTORS AND ADDRESS TO DFILE
+printf "\n\n# RAFT \n\n" >> $DFILE
+printf "## PUBLIC DESCRIPTOR\n" >> $DFILE
+printf "\n\`\`\`\n" >> $DFILE
+printf "$PUBDESC" >> $DFILE
+printf "\n\`\`\`\n" >> $DFILE
+printf "\n\n# RAFT FUND ADDRESS \n\n" >> $DFILE
+printf "$FUNDADDR\n" >> $DFILE
+
+# WRITE KEYS TO FILE
 KFILE="keys.md"
 
 touch $KFILE
 printf "# KEYS \n\n" > $KFILE
 
 printf "## CEO \n" >> $KFILE
-printf "$CEOCHILDPRV\n"  >> $KFILE
-printf "$CEOCHILDPRV1\n"  >> $KFILE
+printf "$ACHILDPRV\n"  >> $KFILE
+printf "$A1CHILDPRV\n"  >> $KFILE
 
 printf "## CFO\n" >> $KFILE
-printf "$CFOCHILDPRV\n"  >> $KFILE
-printf "$CFOCHILDPRV1\n"  >> $KFILE
+printf "$BCHILDPRV\n"  >> $KFILE
+printf "$B1CHILDPRV1\n"  >> $KFILE
 
 
 printf "## CTO\n" >> $KFILE
-printf "$CTOCHILDPRV\n"  >> $KFILE
-printf "$CTOCHILDPRV1\n"  >> $KFILE
-
-# CREATE POLICIES
-
-# EACH ONLY MAINTAINS ONE PRIVATE KEY IN THEIR POLICY
-
-# THE BACKUP KEYS ONLY EXIST FOR NOW AS WATCH-ONLY BACKUPS
-
-PUBPOLICY="thresh(3,or(pk($CEOCHILDPUB),pk($CEOCHILDPUB1)),or(pk($CFOCHILDPUB),pk($CFOCHILDPUB1)),or(pk($CTOCHILDPUB),pk($CTOCHILDPUB1)))"
-
-CEOPOLICY="thresh(3,or(pk($CEOCHILDPRV),pk($CEOCHILDPUB1)),or(pk($CFOCHILDPUB),pk($CFOCHILDPUB1)),or(pk($CTOCHILDPUB),pk($CTOCHILDPUB1)))"
-CFOPOLICY="thresh(3,or(pk($CEOCHILDPUB),pk($CEOCHILDPUB1)),or(pk($CFOCHILDPRV),pk($CFOCHILDPUB1)),or(pk($CTOCHILDPUB),pk($CTOCHILDPUB1)))"
-CTOPOLICY="thresh(3,or(pk($CEOCHILDPUB),pk($CEOCHILDPUB1)),or(pk($CFOCHILDPUB),pk($CFOCHILDPUB1)),or(pk($CTOCHILDPRV),pk($CTOCHILDPUB1)))"
-
-# CREATE DESCRIPTORS
-
-PUBDESC=$(bdk-cli compile "$PUBPOLICY" -t wsh)
-
-CEODESC=$(bdk-cli compile "$CEOPOLICY" -t wsh)
-CFODESC=$(bdk-cli compile "$CFOPOLICY" -t wsh)
-CTODESC=$(bdk-cli compile "$CTOPOLICY" -t wsh)
-
-# PRINT DESCRIPTORS TO DFILE
-printf "\n\n# 3/3 MULTI w/BACKUP\n\n" >> $DFILE
-
-printf "## PUBLIC DESCRIPTOR\n" >> $DFILE
-printf "\n\`\`\`\n" >> $DFILE
-printf "$PUBDESC" | jq -r ".descriptor" >> $DFILE
-printf "\n\`\`\`\n" >> $DFILE
-
-printf "## CEO PRIVATE DESCRIPTOR\n" >> $DFILE
-printf "\n\`\`\`\n" >> $DFILE
-printf "$CEODESC" | jq -r ".descriptor" >> $DFILE
-printf "\n\`\`\`\n" >> $DFILE
-
-printf "## CFO PRIVATE DESCRIPTOR\n" >> $DFILE
-printf "\n\`\`\`\n" >> $DFILE
-printf "$CFODESC" | jq -r ".descriptor" >> $DFILE
-printf "\n\`\`\`\n" >> $DFILE
-
-printf "## CTO PRIVATE DESCRIPTOR\n" >> $DFILE
-printf "\n\`\`\`\n" >> $DFILE
-printf "$CTODESC" | jq -r ".descriptor" >> $DFILE
-printf "\n\`\`\`\n" >> $DFILE
-
+printf "$CCHILDPRV\n"  >> $KFILE
+printf "$C1CHILDPRV1\n"  >> $KFILE
 
 
 exit 0

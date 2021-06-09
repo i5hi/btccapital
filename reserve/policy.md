@@ -8,7 +8,7 @@ They begin by creating a reserve policy for receiving funds from `btccapital`.
 
 Two scripting options are viable here:
 
-## thresh
+## multi
 Note: Keys must be wrapped in `pk()` - avoided here for reading clarity.
 
 ```
@@ -22,12 +22,15 @@ Benefits:
 Disadvantages
 - a single lost key can compromise funds
 
-## thresh_or (preferred)
+
+## raft (preferred)
 Note: Keys must be wrapped in `pk()` - avoided here for reading clarity.
 
 ```
-thresh(3,or(CEO,CEO1),or(CFO,CFO1),or(CTO,CTO1))
+thresh(3,or(CEO,CEO'),or(CFO,CFO'),or(CTO,CTO'))
 ```
+
+The `'` references the backup key. 
 
 Benefits:
 - 1 key backup per individual
@@ -37,3 +40,41 @@ Disadvantages
 - larger size (will not be an issue with schnorr/taproot)
 
 
+
+
+
+### genesis.sh 
+initializes the setup. It creates a `descriptors.md` and a `keys.md` for both `raft` and `multi` policies. 
+
+`descriptors.md` contains the script address that requires funding before moving to the next step.
+
+### multi.sh 
+
+Use the descriptors under `multi` in `descriptors.md` as variables in `multi.sh`.
+
+#### flow
+
+> All signatories must have the complete descriptor 
+
+- any signatory can start the process by craeting a tx (we use the pubdesc)
+- they then sign and pass a signed psbt to the next signatory
+- the final signatory can directly broadcast
+
+### raft.sh 
+
+Use the `PUBLIC DESCRIPTOR` under `raft` in `descriptors.md` as the `PUBDESC` variable in `raft.sh`.
+
+#### flow
+
+> Signatories need not hold the entire descriptor, a server is used to combine and finalize the psbt
+
+- the server creates a `psbt0` that empties the wallet with a payment to mempool.co
+- all three signatories individually sign `psbt0` and return new psbts to the server
+- the server approriately combines the each of the psbts, finalizes and broadcasts.
+
+
+### Updates
+
+Currently `raft` has the ability to allow signatories to use `wpkh` single key wallet (hardware) to sign without awareness of the policy it is signing for.
+
+`multi` currently requires signatories to hold the entire `wsh(multi())` descriptor. Although this makes for an easier flow, it is not conveneient for signatories to sign using hardware.
