@@ -24,22 +24,15 @@ PSBT0=$(bdk-cli wallet -w $RPUBWALL -d $PUBDESC create_tx -a --to $RETURNADD:0 |
 
 PSBTC=$(bdk-cli wallet -w $CWALL -d $CDESC sign --psbt $PSBT0 | jq -r ".psbt")
 STATE=$(bdk-cli wallet -w $CWALL -d $CDESC sign --psbt $PSBT0 | jq -r ".is_finalized")
-
-printf "$STATE\n"
+# NOTE: STATE here shows as true although its false since we are using a wpkh() signer from whose perspective the signature is complete
 
 # Sign or(B,B')
 
 PSBTB=$(bdk-cli wallet -w $BWALL -d $BDESC sign --psbt $PSBT0 | jq -r ".psbt")
-STATE=$(bdk-cli wallet -w $CWALL -d $CDESC sign --psbt $PSBT0 | jq -r ".is_finalized")
-
-printf "$STATE\n"
 
 # Sign or(A,A')
 
 PSBTA=$(bdk-cli wallet -w $AWALL -d $ADESC sign --psbt $PSBT0 | jq -r ".psbt")
-STATE=$(bdk-cli wallet -w $CWALL -d $CDESC sign --psbt $PSBT0 | jq -r ".is_finalized")
-
-printf "$STATE\n"
 
 # Combine and(or(B,B'),or(A,A'))
 
