@@ -1,9 +1,9 @@
 #!/bin/bash -e
 
 # multi
-MPUBWALL=mpub91
+MPUBWALL=mpub1
 # raft
-RPUBWALL=rpub91
+RPUBWALL=rpub1
 # The above must be consistant across all shell scripts.
 
 # SIMULATE HARDWARE WALLET SEEDS AND ACCOUNTS FOR 3 SIGNATORIES
@@ -108,17 +108,17 @@ touch $KFILE
 printf "# KEYS \n\n" > $KFILE
 
 printf "## CEO \n" >> $KFILE
-printf "$ACHILDPRV\n"  >> $KFILE
-printf "$A1CHILDPRV\n"  >> $KFILE
+printf "$CEOCHILDPRV\n"  >> $KFILE
+printf "$CEOCHILDPRV1\n"  >> $KFILE
 
 printf "## CFO\n" >> $KFILE
-printf "$BCHILDPRV\n"  >> $KFILE
-printf "$B1CHILDPRV1\n"  >> $KFILE
+printf "$CFOCHILDPRV\n"  >> $KFILE
+printf "$CFOCHILDPRV1\n"  >> $KFILE
 
 
 printf "## CTO\n" >> $KFILE
-printf "$CCHILDPRV\n"  >> $KFILE
-printf "$C1CHILDPRV1\n"  >> $KFILE
+printf "$CTOCHILDPRV\n"  >> $KFILE
+printf "$CTOCHILDPRV1\n"  >> $KFILE
 
 
 exit 0

@@ -40,4 +40,3 @@ PSBTC=$(bdk-cli wallet -w $CWALL -d $CDESC sign --psbt $PSBTB | jq -r ".psbt")
 
 # Broadcast 
 bdk-cli wallet -w $CWALL -d $CDESC broadcast --psbt $PSBTC
-

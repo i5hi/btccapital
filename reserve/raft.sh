@@ -1,50 +1,58 @@
 #!/bin/bash
 
-RPUBWALL=rpub91
-AWALL=ra91
-BWALL=rb91
-CWALL=rc91
+RPUBWALL=rpub7
+AWALL=ra7
+BWALL=rb7
+CWALL=rc7
 
-
-PUBDESC="wsh(and_v(or_c(pk([d8aae923/84'/1'/1']tpubDDUXg7Fp9HCUrDtBm8HbejsBjMeun2Zgzm2zgULzHWTwLy4286jr7SedMwbc1P2Yep6oUKoqqc7Lk3zCbiXyViECNstnjPBUjmDUmgfzuUy),v:pk([a6404c30/84'/1'/3']tpubDDFHfHwJ1h82pYRjzSUdUZzjpTb8CqunVr8pkp5EfZGUTqdHgLFgJEL56VfXYbJfDEUQjqPPGgy7n5Z6eck918yW1WDAAQgtdtEgMWEZgsm)),and_v(or_c(pk([3d6b435e/84'/1'/1']tpubDCZVUAnqysBtWoNeYS2eAy2SYagy61fpENmmQTRJd1bCPCKua5DDboNeJgmi7H68hewN2exoRdUff9yqgVAMDd1nMBQ1ut8FG57KEr8tEPq),v:pk([77c87c6d/84'/1'/3']tpubDDHeuwFMZ95i2WaFfK1GCGY3PEB6VmnTiQwVetdN4omsuVzzY2vDZr2GCDSq3c9iXNxXPYN1Tjvf6gQpxwiC9wZRZyroA77Cr3VhRRN4dnp)),or_b(pk([89fa0709/84'/1'/1']tpubDDV66i76Y3MXYmnKPrqXHbHhr5uUWTPNjpREmdDdXkXMc8wpdfkuJzWpExW4icpawbKYxPP2a5mPA132xTAxrchXqRsaz96NG2g7vDvUjMf),s:pk([45b25bc5/84'/1'/3']tpubDDV4rGLwzrHqdoQNtyKiFEoqCyjXUUXUXEz634ePBELdzqCDBNcpXhZEJQZjRYAxpKff8jnw6Wrpo6zG8EhUkAJp2yjBFBFgEdFY5G8h1tQ)))))"
-ADESC="wpkh([89fa0709/84'/1'/1']tprv8go3xJ4rPffrfJkXWDAvtBdbH4PYM8CUAWpTV7BL7Uixmeh41GwK8Vtx4q1X2W2ZaFJF3HfDvWpGMDK3czcZk4XJJBZ6TYCAmPCmnpWeY15)"
-BDESC="wpkh([77c87c6d/84'/1'/3']tprv8gbcmXD7QmQ393YTmfLfnrsvpCfALSbZ97LiNNb4eXyV51kDue6dPMQQ24DnEdQfMrya5aa6kqFej5M1TWhWuSQAt8pibE7xucpR2YRFBj9)"
-CDESC="wpkh([d8aae923/84'/1'/1']tprv8gnVXhDZzuWoxkrPsUd1FLD5AL8ychNnRTSDPxJgsEfYWUoFVhvFvx2mBnuvFKdUZ84YcEHcCDXw1Wgdf3uafqJmGY5i369aMhopJyV3LWS)"
+# fund tb1qm6ez5qgjuzf24vu5tt9cgt823xyjg98q7cvku0h60cruj3ay466qsrprwt
+PUBDESC="wsh(and_v(or_c(pk([d7a564bd/84'/1'/1']tpubDDCerAGiUgsvLh3Ao2A8fyzQY8Rw9EKVc86Yvnxgc7HbYyPYdqSZWsK1d2wHr6oGSFLNdDCPa6prXZftvkp24eFLw2bcgZzkYgMY6WF8Ciy),v:pk([f4952635/84'/1'/3']tpubDDRtWtPvRFEGRPJbUbDL87EqxYdGKBq2hsiu9dJERnn8jt8J8Mqtxx8cnGvmB7hxknyLdzTJ8NKup7x2sBraRf1MEgE6kLrLLVHsYRNP7ug)),and_v(or_c(pk([bc389580/84'/1'/1']tpubDC8nuVod6JjRaTThYeSSTXEuHirD2kPhQjmNYXWn4Fb5ws7oMfk1VYhBK3iPN3BTjYPUSVGUgrsHd1murgHvUp59eZDYk8JcvNAoNN5BvUe),v:pk([f0027c9f/84'/1'/3']tpubDC6c9QqFtmULzdS6LiY2MfHDkU23LjwmqYt3UaEhdDD7L1RMDTPcGJtsAs1QqNbawQ4pvYM1yJL8ToCUHrXfKi7vsUx7Wjms8Qjj8TEWmzA)),or_b(pk([2509b026/84'/1'/1']tpubDD3RinqtPJKZ9erSAjYv9BnDdyZZpCS1eHmpBz2cXMtqpnjVz6nXEMpeC7YmPjYLrTggCHvAjuQyQwF7mTsyfwdG7DrT7zyWY3DmUWgXSSd),s:pk([ce8228b4/84'/1'/3']tpubDCirz5J8P8KfUrNWrGNxVXVr9PGeqo4i88wtagSW5JAZ7noMrZWvLUAKQfMFkHwqMZPa7ozTzakMijAPKDbfCP3XdtUUrwChcHSXGgmV3JU)))))"
+ADESC="wpkh([d7a564bd/84'/1'/1']tprv8gWchkEULKCFTE1NuNVYGaLHy6uzyu8b2pVmeGvPBqVCiV8n1ScyLNh9St1NRaHJdVyxT6kEPDFpt98P2XABVmpgn3nDhrDi32WFe8Xkx3N)"
+BDESC="wpkh([2509b026/84'/1'/1']tprv8gMPaNoeEvdtGBpeH5tKjn874x3desF74zB2uTzK766SzJUjMhxw3sCn1zNqHHDwVuxS8ibPvZYEU8ZEWXvaBMTfYHMsUqPuRU3spzzRycn)"
+CDESC="wpkh([bc389580/84'/1'/1']tprv8fSkm5mNww3kgzRuezmr47anihLGsRCnqSAbG1UUdynh7Ns2jGvRK45K8tc1gNPqKnaXMmQucsHj4Mrc8gey9wsE3rcTJvtiWYSbYCti4xh)"
 
 RETURNADD=mkHS9ne12qx9pS9VojpwU5xtRd4T7X7ZUt
 
-bdk-cli wallet -w $PUBWALL -d $PUBDESC sync
-bdk-cli wallet -w $PUBWALL -d $PUBDESC get_new_address
-bdk-cli wallet -w $PUBWALL -d $PUBDESC get_balance
+bdk-cli wallet -w $RPUBWALL -d $PUBDESC sync
+bdk-cli wallet -w $RPUBWALL -d $PUBDESC get_new_address
+bdk-cli wallet -w $RPUBWALL -d $PUBDESC get_balance
 
-PSBT0=$(bdk-cli wallet -w $PUBWALL -d $PUBDESC create_tx -a --to $RETURNADD:0 | jq -r ".psbt")
+PSBT0=$(bdk-cli wallet -w $RPUBWALL -d $PUBDESC create_tx -a --to $RETURNADD:0 | jq -r ".psbt")
 # printf "$PSBT0"
 
 # Sign or(C,C')
 
 PSBTC=$(bdk-cli wallet -w $CWALL -d $CDESC sign --psbt $PSBT0 | jq -r ".psbt")
-# printf "$PSBTC"
+STATE=$(bdk-cli wallet -w $CWALL -d $CDESC sign --psbt $PSBT0 | jq -r ".is_finalized")
+
+printf "$STATE\n"
 
 # Sign or(B,B')
 
 PSBTB=$(bdk-cli wallet -w $BWALL -d $BDESC sign --psbt $PSBT0 | jq -r ".psbt")
-# printf "$PSBTB"
+STATE=$(bdk-cli wallet -w $CWALL -d $CDESC sign --psbt $PSBT0 | jq -r ".is_finalized")
+
+printf "$STATE\n"
 
 # Sign or(A,A')
 
 PSBTA=$(bdk-cli wallet -w $AWALL -d $ADESC sign --psbt $PSBT0 | jq -r ".psbt")
-# printf "$PSBTA"
+STATE=$(bdk-cli wallet -w $CWALL -d $CDESC sign --psbt $PSBT0 | jq -r ".is_finalized")
+
+printf "$STATE\n"
 
 # Combine and(or(B,B'),or(A,A'))
 
-PSBTBA=$(bdk-cli wallet -w $PUBWALL -d $PUBDESC combine_psbt --psbt $PSBTB --psbt $PSBTA | jq -r ".psbt")
+PSBTBA=$(bdk-cli wallet -w $RPUBWALL -d $PUBDESC combine_psbt --psbt $PSBTB --psbt $PSBTA | jq -r ".psbt")
+
 
 # Combine and(or(C,C'),and(or(B,B'),or(A,A'))) 
 
-PSBTCBA=$(bdk-cli wallet -w $PUBWALL -d $PUBDESC combine_psbt --psbt $PSBTC --psbt $PSBTBA | jq -r ".psbt")
+PSBTCBA=$(bdk-cli wallet -w $RPUBWALL -d $PUBDESC combine_psbt --psbt $PSBTC --psbt $PSBTBA | jq -r ".psbt")
+
 
 # printf "$PSBTCBA"
 
 # Finalize 
 
-bdk-cli wallet -w $PUBWALL -d $PUBDESC finalize_psbt --psbt $PSBTCBA
+bdk-cli wallet -w $RPUBWALL -d $PUBDESC finalize_psbt --psbt $PSBTCBA

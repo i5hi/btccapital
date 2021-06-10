@@ -14,6 +14,7 @@ Note: Keys must be wrapped in `pk()` - avoided here for reading clarity.
 ```
 thresh(3,CEO,CFO,CTO)
 ```
+3 conditions must satisfy. Each condition is a single signature from each board member.
 
 Benefits:
 - well supported 
@@ -30,6 +31,8 @@ Note: Keys must be wrapped in `pk()` - avoided here for reading clarity.
 thresh(3,or(CEO,CEO'),or(CFO,CFO'),or(CTO,CTO'))
 ```
 
+3 conditions must satisfy. Each condition is a single sig from one of each of the board members set of keys.
+
 The `'` references the backup key. 
 
 Benefits:
@@ -38,7 +41,6 @@ Benefits:
 Disadvantages
 - not well supported yet (try [bdk](https://bitcoindevkit.org))
 - larger size (will not be an issue with schnorr/taproot)
-
 
 
 
