@@ -12,6 +12,7 @@ A model to structure an organization's bitcoin accounts as a set of [miniscript 
 The btccapital documents serve as a framework for deciding how to go about chosing the right policies for your organization and
 how to manage these accounts for maximum redundancy and anti-fragility.
 
+Start at the `policy.md` file in each folder.
 
 ```bash
 # Get rust toolchain
