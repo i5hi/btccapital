@@ -4,9 +4,13 @@ A model to structure an organization's bitcoin accounts as a set of [miniscript 
 
 ## overview
 
-`btcapital` is the topmost level of an organization, representing the individual/group bringing capital into the organization.
 
-This represents external funds entering the organization and we are therefore not in control of its spending policy. It could either come from an individual single-sig or an group of investors as a multi-sig or some other policy.
+1. reserve: This is the core account which receives capital inflow. This can be in the form of an investment or collection of revenue.
+2. operations: For business that require support for bitcoin payments, they can define any number of policies under operations.
+
+
+The btccapital documents serve as a framework for deciding how to go about chosing the right policies for your organization and
+how to manage these accounts for maximum redundancy and anti-fragility.
 
 
 ```bash
@@ -41,23 +45,14 @@ Eg periods:
 
 <hr>
 
-At the topmost branch we find two policies between board members of the organization:
 
 ## reserve
 
-> A script requiring all board members.
-
-When an investor represented by `btccapital` funds a business, it does so by funding the long term `reserve` first.
-
-This is also where company revenue is collected.
-
-From `reserve` funds, the board members decide how much will be required for operating over a medium term and according fund `operations`.
-
-> Non Bitcoin Native organizations would only maintain a reserve without an operations account.
+> Core consensus between organization board members.
 
 ## operations
 
-> A script requiring only a few board members.
+> Delgation of resources to different departments.
 
 Managing operations fund over a medium term need not require all board members.
 
@@ -65,19 +60,17 @@ From the operations fund, the elected board members must decide how much will be
 
 <hr>
 
-This leads us to the final branch of the tree that holds the various different business specific payment logic.
-
 These are all scripts primarily maintained by the team as a whole or by elected members, based on their own internally conducted consensus over a chosen private social media channel. 
 
-We have simplified it into three main cost streams. 
+Below are three provided examples: live (automated payments), payday (team payments) and resrources (general operating fund). 
 
 This is where the framework extends. Add your own folders here. Replace the existing ones. This section is meant to be the most customizable.
 
-All the following scripts must be backed up to allow the board to release after a medium term timelock in case the team misplaces keys.
+*All the following scripts must be backed up to allow the board to release after a medium term timelock in case the team misplaces keys.*
 
 ### live
 
-> A single-sig script for the company's node server
+> A 2/2 script for the company's node server
 
 Funded every short-medium term period.
 
@@ -90,7 +83,7 @@ This could include:
 
 ### payday
 
-> A script between the team members with a timelocked release.
+> A script between the team members.
 
 Funded every short term period.
 
@@ -119,14 +112,6 @@ Funded every medium term period.
 These are funds that the team would need to aquire shared resources or as an emergency fund.
 
 It is managed by a delegated core team selected by the board, in consensus with the rest of the team.
-
-It is funded to exactly support a chosen `n` early renumerations for all team members for `n` short periods.
-
-This gives everyone a chance to take an early payday `n` times over a medium period.
-
-Those that take an advance are not included in the next payday cycle, and their payday amount is divided among other team members. 
-
-The remainder of the funds at the end of the medium term cycle is distributed equally to all team members.
 
 
 <b>Each sub-folder contains a more detailed explaination of their functions @ README.md.</b>
